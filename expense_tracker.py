@@ -1,7 +1,8 @@
 dates = []
 goods_description = []
 amounts =[]
-total = 0 
+total = 0
+
 
 print ('''
 Welcome to Semicolon Expense Tracker App
@@ -17,7 +18,7 @@ while True:
 
    enter_choice = int(input('enter your choice: '))
    if enter_choice == 1:
-    date =  input('(YYYY-MM-DD)')
+    date =  input('enetr date:(YYYY-MM-DD)')
     description = input('Enter the description: ')
     amount = float(input('Enter the amount: '))
 
@@ -36,7 +37,8 @@ while True:
 
 
    elif enter_choice == 3:
-    total += amounts[value]
+    for price in amounts:
+     total += price
     print('Total Expenses:',total) 
 
 
