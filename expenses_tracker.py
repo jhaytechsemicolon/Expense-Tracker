@@ -1,7 +1,7 @@
 	
 def get_menu():
 	print('''
-                  
+                 welcome to semicolon expense tracker store 
                  1.Add an expense
 		 2.view all expenses
 		 3.calculate total expenses
@@ -22,28 +22,17 @@ def is_number(input):
 	return True
 
 
-def get_date(year:str,month:str,day:str):
-	if len(year) == 4 and is_number(year): 
-		pass
-	else:
-		return 'invalid input' 
-		 
+
+def get_date(date:str)->str:
+	      	
+	if len(date)  != 10:
+		return 'invalid input'
+	if date[4] != '-' or date[7] != '-':
+		return 'invalid input'
 	
-	if len(month) == 2 and is_number(month) and 1 <= int(month) <= 31: 
-		pass
-	else:
-		return 'invalid input' 
-        
+	return 'valid input'
+			
 
-	if len(day) == 2 and is_number(day) and 1 <= int(day) <= 12: 
- 
-		pass
-	else:
-		return 'invalid input' 
-
-	return 'valid input'	
-      
-        
 
 def get_goods_description(items:str):
 	if items == "":
@@ -76,10 +65,8 @@ def main():
 		enter_choice = input('enter choice between 1-4: ')
 
 		if enter_choice == '1':
-			enter_year = input('Enter year(YYYY): ')
-			enter_month = input('Enter month(MM): ')
-			enter_day = input('Enter day(DD): ')
-			date = get_date(enter_year,enter_month,enter_day)
+			enter_date = input('Enter year(YYYY-MM-DD): ')
+			date = get_date(enter_date)
 			if date == 'invalid input':
 				print ('invalid date. please try again:')
 				continue
@@ -100,7 +87,7 @@ def main():
 
 
 			expense = {
-				'date': f' {enter_year}-{enter_month}-{enter_day}',
+				'date': f' {enter_date}',
 				'description': enter_description,
 				'amounts' : int(enter_amount)
 			}
